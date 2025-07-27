@@ -1,90 +1,186 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deathshoot Deathmatch</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
-      background: radial-gradient(#1e1e2f, #0d0d14);
-      color: white;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0b0b0b;
+      background-image: linear-gradient(to bottom, #2c0000, #1a0000);
+      color: #fff;
     }
-
-    .section {
-      padding-top: 4rem;
-      padding-bottom: 4rem;
+    .hero {
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+      background: #1a0000;
+      box-shadow: inset 0 -10px 20px #330000;
     }
-
-    /* Animasi teks Deathshoot */
-    .animated-title {
-      font-size: 3.5rem;
-      font-weight: 900;
-      background: linear-gradient(90deg, orange, red);
+    .hero h1 {
+      font-size: 3rem;
+      background: linear-gradient(90deg, #ff0000, #ff6600);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: pulseGlow 2s infinite alternate;
+      text-shadow: 0 0 20px #ff3300;
+      margin: 0;
     }
-
-    @keyframes pulseGlow {
-      from { text-shadow: 0 0 5px red, 0 0 10px orange; }
-      to { text-shadow: 0 0 20px orange, 0 0 30px red; }
+    .hero p {
+      font-style: italic;
+      color: #ccc;
+      margin-top: 0.5rem;
     }
-
-    /* Animasi ketik nama VANNOSX */
-    .typing {
-      font-family: monospace;
+    .buttons {
+      margin: 2rem auto;
+    }
+    .buttons a {
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
+      margin: 0 0.5rem;
+      background-color: #b30000;
+      color: #fff;
+      font-weight: bold;
+      transition: background 0.3s;
+      cursor: pointer;
+    }
+    .buttons a.discord {
+      background-color: #333;
+    }
+    .buttons a:hover {
+      background-color: #ff3300;
+    }
+    .section {
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    .section h2 {
+      color: #ff6600;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 10px #ff3300;
+    }
+    .feature {
+      margin-bottom: 2rem;
+      padding: 1rem;
+      background: rgba(255, 102, 0, 0.07);
+      border: 1px solid rgba(255, 102, 0, 0.2);
+      border-radius: 15px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 0 15px #ff330033;
+    }
+    .feature span {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+      animation: colorCycle 3s infinite;
+    }
+    .feature p {
+      color: #ddd;
+      font-size: 1.1rem;
+      margin: 0.5rem 0 0;
+    }
+    @keyframes colorCycle {
+      0% { color: #ff3300; }
+      25% { color: #ff6600; }
+      50% { color: #ffcc00; }
+      75% { color: #ff6600; }
+      100% { color: #ff3300; }
+    }
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+      }
+      20%, 24%, 55% {
+        opacity: 0.4;
+      }
+    }
+    .join {
+      background: #1a0000;
+      padding: 2rem;
+      box-shadow: 0 0 30px #330000;
+    }
+    .join h3 {
+      color: #ff9933;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+    .join p span {
+      color: #ff3300;
+      font-weight: bold;
       font-size: 1.2rem;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 2px solid orange;
-      width: 0;
-      animation: typing 3s steps(8, end) forwards, blink 0.7s step-end infinite;
-      margin: auto;
     }
-
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 8ch }
+    .join p {
+      font-size: 1.1rem;
+      color: #ccc;
     }
-
-    @keyframes blink {
-      50% { border-color: transparent }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: #888;
+      background: #0d0000;
+      font-size: 0.85rem;
+    }
+    footer strong {
+      font-weight: bold;
+      animation: colorCycle 4s infinite;
     }
   </style>
-</head>
-<body>
-
-  <!-- Hero Section -->
-  <header class="text-center py-20 bg-gradient-to-b from-black to-gray-900">
-    <h1 class="animated-title">Deathshoot Deathmatch</h1>
-    <p class="text-xl mt-4 text-gray-300 italic">Where Chaos Meets Skill</p>
-    <div class="mt-6">
-      <button id="joinBtn" class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-xl">Join Now</button>
-      <a href="https://discord.gg/sQdTHdNRfD" target="_blank" class="ml-4 bg-gray-700 hover:bg-gray-800 text-white px-6 py-2 rounded-xl inline-block">Discord</a>
-    </div>
-  </header>
-
-  <!-- Developer Credit with Typing Effect -->
-  <div class="section bg-black text-center">
-    <div class="typing text-orange-500 font-bold">VANNOSX</div>
-  </div>
-
-  <!-- Footer -->
-  <footer class="text-center py-6 bg-black text-gray-500">
-    <p>&copy; 2025 Deathshoot Deathmatch. All rights reserved.</p>
-    <p class="mt-1 text-sm text-gray-600">Developed by <span class="text-white font-semibold">VANNOSX</span></p>
-  </footer>
-
-  <!-- JS Copy IP -->
   <script>
-    document.getElementById("joinBtn").addEventListener("click", function () {
+    function copyIP() {
       const ip = "159.65.14.221:7045";
       navigator.clipboard.writeText(ip).then(() => {
-        alert("IP server berhasil disalin ke clipboard: " + ip);
+        alert("IP server telah disalin: " + ip);
+      }, err => {
+        alert("Gagal menyalin IP.");
       });
-    });
+    }
   </script>
+</head>
+<body>
+  <div class="hero">
+    <h1>Deathshoot Deathmatch</h1>
+    <p>Where Chaos Meets Skill</p>
+    <div class="buttons">
+      <a onclick="copyIP()">Join Now</a>
+      <a href="https://discord.gg/sQdTHdNRfD" target="_blank" class="discord">Discord</a>
+    </div>
+  </div>  <div class="section">
+    <h2>Server Features</h2>
+    <div class="feature">
+      ⚔️ <span>Gangwars</span>
+      <p>Rebut wilayah dan buktikan siapa geng terkuat.</p>
+    </div>
+    <div class="feature">
+      🔫 <span>Deathmatch</span>
+      <p>Skill murni tanpa ampun di arena tempur.</p>
+    </div>
+    <div class="feature">
+      🚗 <span>Freeroam</span>
+      <p>Jelajahi dunia tanpa batas.</p>
+    </div>
+    <div class="feature">
+      ⚔️ <span>Duel</span>
+      <p>1 vs 1 duel adu ilmu.</p>
+    </div>
+    <div class="feature">
+      🆚 <span>Versus</span>
+      <p>Tim lawan tim, adu strategi dan kecepatan.</p>
+    </div>
+  </div>  <div class="section join" id="join">
+    <h3>Cara Bergabung</h3>
+    <p>IP: <span>159.65.14.221:7045</span></p>
+    <p>Gunakan SA-MP Client versi terbaru untuk masuk ke dunia Deathshoot!</p>
+  </div>  <div class="section">
+    <h2>Tentang Server</h2>
+    <p>Deathshoot Deathmatch adalah server SA-MP yang menawarkan pengalaman PvP intens dengan mode Gangwars, Deathmatch, Freeroam, Duel, dan Versus Dibangun untuk komunitas yang haus akan aksi dan tantangan.</p>
+  </div>  <footer>
+    &copy; 2025 Deathshoot Deathmatch. All rights reserved.<br />
+    Developed by <strong>VANNOSX</strong>
+  </footer>
 </body>
 </html>
